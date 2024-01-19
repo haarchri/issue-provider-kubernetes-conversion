@@ -1,0 +1,5 @@
+apiVersion: haarchri.io/v1alpha1
+kind: XTest
+metadata:
+  name: test
+spec: {}

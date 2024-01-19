@@ -1,0 +1,30 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xtests.haarchri.io
+spec:
+  group: haarchri.io
+  names:
+    kind: XTest
+    plural: xtests
+  claimNames:
+    kind: test
+    plural: tests
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    served: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              deletionPolicy:
+                description: Delete resource when claim is deleted
+                enum:
+                - Delete
+                - Orphan
+                type: string
+                default: Delete
